@@ -4,7 +4,7 @@
 
 English | [简体中文](./README-zh_CN.md)
 
-Batteries-included, an easy way to animate your waves 🤩
+Out-of-the-box, an easy way to animate your waves 🤩
 
 [**demo**](https://zhangyu1818.github.io/motion-wave/)
 
