@@ -55,62 +55,62 @@ pnpm install motion-wave
 
 ## Component usage
 
-**<Wave/ >**
+**<Wave />**
 
 ```jsx
 function App() {
-   return (
-     <Wave
-       width={innerWidth}
-       height={innerHeight}
-       frequency={0.5}
-       amplitude={200}
-       color='#FF7F50'
-     />
-   )
+  return (
+    <Wave
+      width={innerWidth}
+      height={innerHeight}
+      frequency={0.5}
+      amplitude={200}
+      color='#FF7F50'
+    />
+  )
 }
 ```
 
-**<MotionWave/ >**
+**<MotionWave />**
 
 [![Edit dreamy-booth-tw5w5k](https://codesandbox.io/static/img/play-codesandbox.svg)](https://codesandbox.io/s/dreamy-booth-tw5w5k?fontsize=14&hidenavigation=1&theme=dark)
 
 ```jsx
 function App() {
-   return (
-     <Motion Wave
-       width={innerWidth}
-       height={innerHeight}
-       initialConfig={{
-         frequency: 0.8,
-         amplitude: 200,
-         speed: 1,
-         color: '#FF7F50',
-       }}
-       motionConfig={{
-         frequency: {
-           value: 0.2,
-           duration: 5,
-           type: 'tween',
-           ease: 'easeOut',
-           repeat: Infinity,
-           repeatType: 'reverse',
-         },
-         amplitude: {
-           value: 150,
-           duration: 3,
-         },
-         speed: {
-           value: 5,
-           duration: 8,
-         },
-         color: {
-           value: '#00A86B',
-           duration: 6,
-         },
-       }}
-     />
-   )
+  return (
+    <MotionWave
+      width={innerWidth}
+      height={innerHeight}
+      initialConfig={{
+        frequency: 0.8,
+        amplitude: 200,
+        speed: 1,
+        color: '#FF7F50',
+      }}
+      motionConfig={{
+        frequency: {
+          value: 0.2,
+          duration: 5,
+          type: 'tween',
+          ease: 'easeOut',
+          repeat: Infinity,
+          repeatType: 'reverse',
+        },
+        amplitude: {
+          value: 150,
+          duration: 3,
+        },
+        speed: {
+          value: 5,
+          duration: 8,
+        },
+        color: {
+          value: '#00A86B',
+          duration: 6,
+        },
+      }}
+    />
+  )
 }
 ```
 
@@ -126,14 +126,14 @@ Example:
 
 ```jsx
 const Wave = props => {
-   const [canvasRef, handler] = useWave(props, ref)
+  const [canvasRef, handler] = useWave(props)
 
-   return (
-     <div>
-       <button onClick={() => handler. current. stop()}>stop</button>
-       <canvas ref={canvasRef} width={width} height={height} />
-     </div>
-   )
+  return (
+    <div>
+      <button onClick={() => handler.current.stop()}>stop</button>
+      <canvas ref={canvasRef} width={width} height={height} />
+    </div>
+  )
 }
 ```
 
@@ -146,9 +146,9 @@ createWave(canvas: HTMLCanvasElement, config: WaveConfig)
 Example:
 
 ```js
-const handler = createWave(document. querySelector('#canvas'), {
-   frequency: 1,
-   amplitude: 200,
+const handler = createWave(document.querySelector('#canvas'), {
+  frequency: 1,
+  amplitude: 200,
 })
 ```
 
