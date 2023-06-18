@@ -2,6 +2,7 @@
   "name": "motion-wave",
   "version": "0.0.0",
   "type": "module",
+  "homepage": "https://zhangyu1818.github.io/motion-wave/",
   "author": {
     "name": "zhangyu1818",
     "url": "https://zhangyu.dev"
@@ -19,7 +20,7 @@
   "scripts": {
     "dev": "ladle serve",
     "build": "node scripts/build.cjs",
-    "build:ladle": "ladle build",
+    "build:ladle": "ladle build --base=/motion-wave/",
     "lint": "eslint --ext .ts,.tsx src/** demos/**",
     "preview": "ladle preview",
     "deploy": "gh-pages -d build",
