@@ -1,0 +1,66 @@
+{
+  "name": "motion-wave",
+  "version": "0.0.0",
+  "type": "module",
+  "author": {
+    "name": "zhangyu1818",
+    "url": "https://zhangyu.dev"
+  },
+  "repository": {
+    "url": "https://github.com/zhangyu1818/motion-wave.git"
+  },
+  "scripts": {
+    "dev": "ladle serve",
+    "build": "node scripts/build.cjs",
+    "build:ladle": "ladle build",
+    "lint": "eslint --ext .ts,.tsx src/** demos/**",
+    "preview": "ladle preview",
+    "deploy": "gh-pages -d build",
+    "prepare": "husky install"
+  },
+  "exports": {
+    ".": {
+      "import": "./dist/esm/index.js",
+      "require": "./dist/cjs/index.js",
+      "types": "./dist/cjs/index.d.ts"
+    }
+  },
+  "main": "./dist/cjs/index.js",
+  "types": "./dist/cjs/index.d.ts",
+  "files": [
+    "dist"
+  ],
+  "packageManager": "pnpm",
+  "lint-staged": {
+    "*.{ts,tsx}": [
+      "npm run lint",
+      "prettier --write"
+    ]
+  },
+  "peerDependencies": {
+    "framer-motion": "^10",
+    "react": "^16.8.0 || ^17 || ^18"
+  },
+  "devDependencies": {
+    "@ladle/react": "^2.15.0",
+    "@leva-ui/plugin-bezier": "^0.9.19",
+    "@leva-ui/plugin-spring": "^0.9.18",
+    "@types/react": "^18.2.12",
+    "@typescript-eslint/eslint-plugin": "^5.59.11",
+    "@typescript-eslint/parser": "^5.59.11",
+    "eslint": "^8.43.0",
+    "eslint-config-prettier": "^8.8.0",
+    "eslint-plugin-prettier": "^4.2.1",
+    "framer-motion": "^10.12.16",
+    "fs-extra": "^11.1.1",
+    "gh-pages": "^5.0.0",
+    "husky": "^8.0.0",
+    "leva": "^0.9.35",
+    "lint-staged": "^13.2.2",
+    "prettier": "^2.8.8",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "rimraf": "^5.0.1",
+    "typescript": "^5.1.3"
+  }
+}
