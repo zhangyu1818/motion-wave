@@ -9,6 +9,13 @@
   "repository": {
     "url": "https://github.com/zhangyu1818/motion-wave.git"
   },
+  "description": "A library suitable for generating animated waveforms.",
+  "keywords": [
+    "wave",
+    "waveforms",
+    "animated waves",
+    "react wave"
+  ],
   "scripts": {
     "dev": "ladle serve",
     "build": "node scripts/build.cjs",
