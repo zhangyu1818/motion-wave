@@ -10,7 +10,8 @@ import { defaultConfig } from './defaultConfig'
 
 const useMotionControls = (
   name: string,
-  defaultValue: Record<string, unknown> = {}
+  defaultValue: Record<string, unknown> = {},
+  defaultType: 'spring' | 'tween' = 'tween'
 ) => {
   const controls = useControls(
     'Motion',
@@ -18,6 +19,7 @@ const useMotionControls = (
       [name]: folder(
         {
           type: {
+            value: defaultType,
             options: ['tween', 'spring'],
           },
           ...defaultValue,
@@ -28,6 +30,11 @@ const useMotionControls = (
             render: get => get(`Motion.${name}.type`) === 'tween',
           }),
           spring: springControl({
+            value: {
+              friction: 10,
+              mass: 1,
+              tension: 20,
+            },
             render: get => get(`Motion.${name}.type`) === 'spring',
           }),
         },
@@ -84,7 +91,7 @@ WaveExample.storyName = 'Wave'
 export const MotionWaveExample: Story = () => {
   const defaultControls = useControls(
     'initial',
-    { ...defaultConfig, color: '#FF7F50' },
+    { ...defaultConfig, frequency: 0.4, color: '#FF7F50' },
     {
       collapsed: true,
     }
@@ -92,7 +99,7 @@ export const MotionWaveExample: Story = () => {
 
   const controls = useControls('Animation', {
     frequency: {
-      value: 0.3,
+      value: 0.2,
       min: 0,
       max: 10,
       step: 0.01,
@@ -103,11 +110,11 @@ export const MotionWaveExample: Story = () => {
       max: innerHeight / 2,
     },
     phase: {
-      value: 0,
+      value: 4,
       step: 1,
     },
     offset: {
-      value: 0,
+      value: 50,
       min: -innerHeight,
       max: innerHeight,
     },
@@ -124,12 +131,16 @@ export const MotionWaveExample: Story = () => {
     useDeferredValue(controls)
 
   const frequencyConfig = useMotionControls('frequency', {
-    duration: 5,
-  })
-  const amplitudeConfig = useMotionControls('amplitude', {
     duration: 8,
-    repeatDelay: 2,
+    repeatDelay: 3,
   })
+  const amplitudeConfig = useMotionControls(
+    'amplitude',
+    {
+      repeatDelay: 1,
+    },
+    'spring'
+  )
   const phaseConfig = useMotionControls('phase', {
     duration: 10,
   })
@@ -137,8 +148,8 @@ export const MotionWaveExample: Story = () => {
     duration: 2,
   })
   const speedConfig = useMotionControls('speed', {
-    duration: 6,
-    repeatDelay: 2,
+    duration: 10,
+    repeatDelay: 3,
   })
   const colorConfig = useMotionControls('color', {
     duration: 6,
