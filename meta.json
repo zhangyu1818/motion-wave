@@ -1,0 +1,29 @@
+{
+  "about": {
+    "homepage": "https://www.ladle.dev",
+    "github": "https://github.com/tajo/ladle",
+    "version": 1
+  },
+  "stories": {
+    "components--motion-wave": {
+      "name": "Motion wave",
+      "levels": [
+        "Components"
+      ],
+      "locStart": 84,
+      "locEnd": 184,
+      "filePath": "demos/Components.tsx",
+      "meta": {}
+    },
+    "components--wave": {
+      "name": "Wave",
+      "levels": [
+        "Components"
+      ],
+      "locStart": 61,
+      "locEnd": 81,
+      "filePath": "demos/Components.tsx",
+      "meta": {}
+    }
+  }
+}
