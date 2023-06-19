@@ -36,6 +36,9 @@ export const useWave = (config: WaveConfig, ref?: unknown) => {
         color,
       })
     }
+    return () => {
+      handler.current?.stop()
+    }
   }, [amplitude, color, frequency, offset, phase, speed])
 
   useLayoutEffect(() => {

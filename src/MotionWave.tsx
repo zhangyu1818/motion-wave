@@ -87,6 +87,16 @@ export const MotionWave = React.memo(
       }
     }, [JSON.stringify(motionConfig)])
 
+    useLayoutEffect(() => {
+      return () => {
+        if (motionMap.current) {
+          Object.values(motionMap.current).forEach(({ controls }) => {
+            controls.stop()
+          })
+        }
+      }
+    }, [])
+
     return (
       <canvas ref={canvasRef} width={width} height={height} {...restProps} />
     )

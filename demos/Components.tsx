@@ -97,6 +97,13 @@ export const MotionWaveExample: Story = () => {
     }
   )
 
+  const { hide } = useControls({
+    hide: {
+      value: false,
+      options: [true, false],
+    },
+  })
+
   const controls = useControls('Animation', {
     frequency: {
       value: 0.2,
@@ -158,37 +165,39 @@ export const MotionWaveExample: Story = () => {
 
   return (
     <>
-      <MotionWave
-        width={innerWidth}
-        height={innerHeight}
-        initialConfig={defaultControls}
-        motionConfig={{
-          frequency: {
-            value: frequency,
-            ...frequencyConfig,
-          },
-          amplitude: {
-            value: amplitude,
-            ...amplitudeConfig,
-          },
-          phase: {
-            value: phase,
-            ...phaseConfig,
-          },
-          offset: {
-            value: offset,
-            ...offsetConfig,
-          },
-          speed: {
-            value: speed,
-            ...speedConfig,
-          },
-          color: {
-            value: color,
-            ...colorConfig,
-          },
-        }}
-      />
+      {!hide && (
+        <MotionWave
+          width={innerWidth}
+          height={innerHeight}
+          initialConfig={defaultControls}
+          motionConfig={{
+            frequency: {
+              value: frequency,
+              ...frequencyConfig,
+            },
+            amplitude: {
+              value: amplitude,
+              ...amplitudeConfig,
+            },
+            phase: {
+              value: phase,
+              ...phaseConfig,
+            },
+            offset: {
+              value: offset,
+              ...offsetConfig,
+            },
+            speed: {
+              value: speed,
+              ...speedConfig,
+            },
+            color: {
+              value: color,
+              ...colorConfig,
+            },
+          }}
+        />
+      )}
       <Leva collapsed hideCopyButton />
     </>
   )
