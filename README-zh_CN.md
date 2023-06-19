@@ -55,7 +55,7 @@ pnpm install motion-wave
 
 ## 组件使用
 
-**<Wave />**
+**`<Wave />`**
 
 ```jsx
 function App() {
@@ -71,7 +71,7 @@ function App() {
 }
 ```
 
-**<MotionWave />**
+**`<MotionWave />`**
 
 [![Edit dreamy-booth-tw5w5k](https://codesandbox.io/static/img/play-codesandbox.svg)](https://codesandbox.io/s/dreamy-booth-tw5w5k?fontsize=14&hidenavigation=1&theme=dark)
 
