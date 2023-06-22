@@ -10,8 +10,8 @@
       "levels": [
         "Components"
       ],
-      "locStart": 91,
-      "locEnd": 204,
+      "locStart": 89,
+      "locEnd": 202,
       "filePath": "demos/Components.tsx",
       "meta": {}
     },
@@ -20,8 +20,8 @@
       "levels": [
         "Components"
       ],
-      "locStart": 68,
-      "locEnd": 88,
+      "locStart": 66,
+      "locEnd": 86,
       "filePath": "demos/Components.tsx",
       "meta": {}
     }
