@@ -1,5 +1,7 @@
 # Motion Wave 🌊
 
+![npm bundle size](https://img.shields.io/bundlephobia/minzip/motion-wave)
+
 ---
 
 English | [简体中文](./README-zh_CN.md)
