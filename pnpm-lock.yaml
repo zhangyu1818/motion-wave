@@ -2,8 +2,8 @@ lockfileVersion: '6.0'
 
 dependencies:
   from-to.js:
-    specifier: ^0.0.0
-    version: 0.0.0
+    specifier: ^0.0.1
+    version: 0.0.1
 
 devDependencies:
   '@ladle/react':
@@ -2517,8 +2517,8 @@ packages:
     engines: {node: '>= 0.6'}
     dev: true
 
-  /from-to.js@0.0.0:
-    resolution: {integrity: sha512-Q6/Mn0SKcMNYTk+TXY4YC24Yjty0mmR/eHfavbqwVBEiU5dFvRV88TyWF6ugMBY5m/YHft4j2F7tKsOs9O/nhQ==}
+  /from-to.js@0.0.1:
+    resolution: {integrity: sha512-aIKpLSALQXIozJH8QDpd7UwSPZTfOOHuBGP/6zjZ8QSWqxWZSZY+qMYKkhDKRF/FL6V0d6pyR+MaHM2AQ8lnqg==}
     dependencies:
       bezier-easing: 2.1.0
     dev: false

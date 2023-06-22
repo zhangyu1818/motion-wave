@@ -3,12 +3,12 @@ import { animate } from 'from-to.js'
 
 import { useWave, useLayoutEffect } from './hook'
 
-import type { Controls, Bezier, Spring } from 'from-to.js'
+import type { Controls, TransitionOptions } from 'from-to.js'
 import type { WaveConfig } from './createWave'
 
-type SupportedMotionConfig = Omit<WaveConfig, ''>
+type SupportedMotionConfig = WaveConfig
 
-export type WaveTransition = (Bezier | Spring) & { delay?: number }
+export type WaveTransition = TransitionOptions
 
 type MotionConfig = {
   [P in keyof SupportedMotionConfig]?: WaveTransition & {

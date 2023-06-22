@@ -13,7 +13,7 @@ export const useWave = (config: WaveConfig, ref?: unknown) => {
   const { frequency, amplitude, phase, speed, offset, color } = config
 
   const canvasRef = React.useRef<HTMLCanvasElement>(null)
-  const handler = React.useRef<WaveHandler>()
+  const handler = React.useRef<WaveHandler | null>(null)
 
   useLayoutEffect(() => {
     if (!handler.current) {
@@ -36,9 +36,6 @@ export const useWave = (config: WaveConfig, ref?: unknown) => {
         color,
       })
     }
-    return () => {
-      handler.current?.stop()
-    }
   }, [amplitude, color, frequency, offset, phase, speed])
 
   useLayoutEffect(() => {
@@ -52,6 +49,13 @@ export const useWave = (config: WaveConfig, ref?: unknown) => {
       return () => {
         ref.current = null
       }
+    }
+  }, [])
+
+  useLayoutEffect(() => {
+    return () => {
+      handler.current?.stop()
+      handler.current = null
     }
   }, [])
 

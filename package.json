@@ -1,6 +1,6 @@
 {
   "name": "motion-wave",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "type": "module",
   "homepage": "https://zhangyu1818.github.io/motion-wave/",
   "author": {
@@ -70,6 +70,6 @@
     "typescript": "^5.1.3"
   },
   "dependencies": {
-    "from-to.js": "^0.0.0"
+    "from-to.js": "^0.0.1"
   }
 }
