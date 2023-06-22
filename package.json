@@ -1,6 +1,6 @@
 {
   "name": "motion-wave",
-  "version": "0.0.0",
+  "version": "0.0.1",
   "type": "module",
   "homepage": "https://zhangyu1818.github.io/motion-wave/",
   "author": {
@@ -38,7 +38,7 @@
   "files": [
     "dist"
   ],
-  "packageManager": "pnpm",
+  "packageManager": "pnpm@8.5.1",
   "lint-staged": {
     "*.{ts,tsx}": [
       "npm run lint",
@@ -46,7 +46,6 @@
     ]
   },
   "peerDependencies": {
-    "framer-motion": "^10",
     "react": "^16.8.0 || ^17 || ^18"
   },
   "devDependencies": {
@@ -59,7 +58,6 @@
     "eslint": "^8.43.0",
     "eslint-config-prettier": "^8.8.0",
     "eslint-plugin-prettier": "^4.2.1",
-    "framer-motion": "^10.12.16",
     "fs-extra": "^11.1.1",
     "gh-pages": "^5.0.0",
     "husky": "^8.0.0",
@@ -70,5 +68,8 @@
     "react-dom": "^18.2.0",
     "rimraf": "^5.0.1",
     "typescript": "^5.1.3"
+  },
+  "dependencies": {
+    "from-to.js": "^0.0.0"
   }
 }

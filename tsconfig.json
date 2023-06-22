@@ -6,7 +6,7 @@
     "module": "commonjs",
     "moduleResolution": "node",
     "declaration": true,
-    "emitDeclarationOnly": true,
+    "noEmit": true,
     "esModuleInterop": true,
     "forceConsistentCasingInFileNames": true,
     "strict": true,

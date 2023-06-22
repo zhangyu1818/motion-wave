@@ -23,8 +23,6 @@ const useMotionControls = (
             options: ['tween', 'spring'],
           },
           ...defaultValue,
-          repeat: Infinity,
-          repeatType: 'reverse',
           bezier: bezierControl({
             handles: 'ease',
             render: get => get(`Motion.${name}.type`) === 'tween',
@@ -139,12 +137,12 @@ export const MotionWaveExample: Story = () => {
 
   const frequencyConfig = useMotionControls('frequency', {
     duration: 8,
-    repeatDelay: 3,
+    loopDelay: 3,
   })
   const amplitudeConfig = useMotionControls(
     'amplitude',
     {
-      repeatDelay: 1,
+      loopDelay: 1,
     },
     'spring'
   )
@@ -156,11 +154,11 @@ export const MotionWaveExample: Story = () => {
   })
   const speedConfig = useMotionControls('speed', {
     duration: 10,
-    repeatDelay: 3,
+    loopDelay: 3,
   })
   const colorConfig = useMotionControls('color', {
     duration: 6,
-    repeatDelay: 2,
+    loopDelay: 2,
   })
 
   return (

@@ -1,20 +1,14 @@
 import * as React from 'react'
-import { animate } from 'framer-motion'
+import { animate } from 'from-to.js'
 
 import { useWave, useLayoutEffect } from './hook'
 
-import type {
-  AnimationPlaybackControls,
-  ValueAnimationTransition,
-} from 'framer-motion'
+import type { Controls, Bezier, Spring } from 'from-to.js'
 import type { WaveConfig } from './createWave'
 
 type SupportedMotionConfig = Omit<WaveConfig, ''>
 
-export type WaveTransition = Omit<
-  ValueAnimationTransition,
-  'onUpdate' | 'onStop' | 'onPlay' | 'onComplete' | 'onRepeat'
->
+export type WaveTransition = (Bezier | Spring) & { delay?: number }
 
 type MotionConfig = {
   [P in keyof SupportedMotionConfig]?: WaveTransition & {
@@ -24,7 +18,7 @@ type MotionConfig = {
 
 type MotionMap = {
   [P in keyof SupportedMotionConfig]?: {
-    controls: AnimationPlaybackControls
+    controls: Controls
     transition: WaveTransition
   }
 }
@@ -70,6 +64,7 @@ export const MotionWave = React.memo(
             lastControls?.stop()
 
             const controls = animate(currentValue, nextValue, {
+              loop: true,
               ...transition,
               onUpdate: value => {
                 canvasHandler.current?.setConfig({

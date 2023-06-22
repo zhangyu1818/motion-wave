@@ -93,8 +93,6 @@ function App() {
           duration: 5,
           type: 'tween',
           ease: 'easeOut',
-          repeat: Infinity,
-          repeatType: 'reverse',
         },
         amplitude: {
           value: 150,
@@ -114,12 +112,12 @@ function App() {
 }
 ```
 
-For detailed configuration of `MotionConfig`, please refer to [framer-motion](https://www.framer.com/motion/transition/).
+For detailed configuration of `MotionConfig`, please refer to [from-to](https://github.com/zhangyu1818/from-to).
 
 ## Hook
 
 ```
-useWave(config:WaveConfig, ref: unknown)
+useWave(config:WaveConfig, ref?: unknown)
 ```
 
 Example:
@@ -155,3 +153,7 @@ const handler = createWave(document.querySelector('#canvas'), {
 ## LICENSE
 
 [MIT License](https://github.com/zhangyu1818/motion-wave/blob/main/LICENSE)
+
+---
+
+Made with ❤️‍🩹 in Chengdu
