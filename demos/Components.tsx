@@ -139,13 +139,9 @@ export const MotionWaveExample: Story = () => {
     duration: 8,
     loopDelay: 3,
   })
-  const amplitudeConfig = useMotionControls(
-    'amplitude',
-    {
-      loopDelay: 1,
-    },
-    'spring'
-  )
+  const amplitudeConfig = useMotionControls('amplitude', {
+    loopDelay: 3,
+  })
   const phaseConfig = useMotionControls('phase', {
     duration: 10,
   })
