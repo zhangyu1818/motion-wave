@@ -93,8 +93,6 @@ function App() {
           duration: 5,
           type: 'tween',
           ease: 'easeOut',
-          repeat: Infinity,
-          repeatType: 'reverse',
         },
         amplitude: {
           value: 150,
@@ -119,7 +117,7 @@ function App() {
 ## Hook
 
 ```
-useWave(config:WaveConfig, ref: unknown)
+useWave(config:WaveConfig, ref?: unknown)
 ```
 
 示例:
