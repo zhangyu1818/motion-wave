@@ -5,6 +5,10 @@ export { Wave } from './Wave'
 export type { WaveProps } from './Wave'
 
 export { MotionWave } from './MotionWave'
-export type { MotionWaveProps, WaveTransition } from './MotionWave'
+export type {
+  MotionWaveProps,
+  WaveTransition,
+  MotionConfig,
+} from './MotionWave'
 
 export { useWave } from './hook'

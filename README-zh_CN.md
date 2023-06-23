@@ -90,6 +90,8 @@ function App() {
         color: '#FF7F50',
       }}
       motionConfig={{
+        // 或者使用数值
+        // 如 frequency: 0.2
         frequency: {
           value: 0.2,
           duration: 5,

@@ -44,9 +44,7 @@ export const createWave = (canvas: HTMLCanvasElement, config: WaveConfig) => {
     ctx.beginPath()
     ctx.moveTo(0, canvas.height / 2)
 
-    const innerHeight = canvas.clientHeight
-
-    const offsetY = innerHeight / 2 + offset
+    const offsetY = canvas.height / 2 + offset
 
     const calcY = (
       x: number,
@@ -126,11 +124,17 @@ export const createWave = (canvas: HTMLCanvasElement, config: WaveConfig) => {
     distance = 0
   }
 
+  function resize(width: number, height: number) {
+    canvas.width = width
+    canvas.height = height
+  }
+
   return {
     start: () => draw(),
     setConfig,
     stop,
     reset,
+    resize,
     currentConfig: waveConfigs,
   }
 }

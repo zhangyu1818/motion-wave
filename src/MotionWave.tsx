@@ -3,23 +3,25 @@ import { animate } from 'from-to.js'
 
 import { useWave, useLayoutEffect } from './hook'
 
-import type { Controls, TransitionOptions } from 'from-to.js'
+import type { Controls, Options } from 'from-to.js'
 import type { WaveConfig } from './createWave'
 
 type SupportedMotionConfig = WaveConfig
 
-export type WaveTransition = TransitionOptions
+export type WaveTransition = Options<unknown>
 
-type MotionConfig = {
-  [P in keyof SupportedMotionConfig]?: WaveTransition & {
-    value: NonNullable<WaveConfig[P]>
-  }
+export type MotionConfig = {
+  [P in keyof SupportedMotionConfig]?:
+    | (WaveTransition & {
+        value: NonNullable<SupportedMotionConfig[P]>
+      })
+    | SupportedMotionConfig[P]
 }
 
 type MotionMap = {
   [P in keyof SupportedMotionConfig]?: {
     controls: Controls
-    transition: WaveTransition
+    transition: MotionConfig
   }
 }
 
@@ -50,7 +52,17 @@ export const MotionWave = React.memo(
         Object.entries(motionConfig).forEach(([key, config]) => {
           const motionKey = key as keyof SupportedMotionConfig
           const currentValue = canvasHandler.current!.currentConfig[motionKey]
-          const { value: nextValue, ...transition } = config
+
+          let nextValue, transition
+
+          if (typeof config === 'object' && config !== null) {
+            const { value, ...nextTransition } = config
+            nextValue = value
+            transition = nextTransition
+          } else {
+            nextValue = config
+            transition = {}
+          }
 
           const { transition: lastTransition, controls: lastControls } =
             motionMap.current[motionKey] ?? {}
@@ -75,7 +87,7 @@ export const MotionWave = React.memo(
 
             motionMap.current[motionKey] = {
               controls,
-              transition,
+              transition: transition as MotionConfig,
             }
           }
         })

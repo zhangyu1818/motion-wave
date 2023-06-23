@@ -90,6 +90,8 @@ function App() {
         color: '#FF7F50',
       }}
       motionConfig={{
+        // or use numerical values
+        // such as frequency: 0.2
         frequency: {
           value: 0.2,
           duration: 5,
