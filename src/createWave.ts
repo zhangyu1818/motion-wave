@@ -44,6 +44,8 @@ export const createWave = (canvas: HTMLCanvasElement, config: WaveConfig) => {
     ctx.beginPath()
     ctx.moveTo(0, canvas.height / 2)
 
+    const innerHeight = canvas.clientHeight
+
     const offsetY = innerHeight / 2 + offset
 
     const calcY = (
