@@ -1,5 +1,4 @@
 import * as React from 'react'
-import { animate } from 'from-to.js'
 
 import { useWave, useLayoutEffect } from './hook'
 
@@ -48,7 +47,7 @@ export const MotionWave = React.memo(
     const motionMap = React.useRef<MotionMap>({})
 
     useLayoutEffect(() => {
-      if (motionConfig) {
+      if (motionConfig && canvasHandler.current) {
         Object.entries(motionConfig).forEach(([key, config]) => {
           const motionKey = key as keyof SupportedMotionConfig
           const currentValue = canvasHandler.current!.currentConfig[motionKey]
@@ -75,15 +74,13 @@ export const MotionWave = React.memo(
           if (shouldAnimate) {
             lastControls?.stop()
 
-            const controls = animate(currentValue, nextValue, {
-              loop: true,
-              ...transition,
-              onUpdate: value => {
-                canvasHandler.current?.setConfig({
-                  [key]: value,
-                })
-              },
-            })
+            const controls = canvasHandler.current!.motionTo(
+              motionKey,
+              nextValue,
+              {
+                ...transition,
+              }
+            )
 
             motionMap.current[motionKey] = {
               controls,

@@ -1,3 +1,5 @@
+import { animate, type Options as MotionOptions } from 'from-to.js'
+
 export interface WaveConfig {
   frequency: number
   amplitude: number
@@ -119,6 +121,21 @@ export const createWave = (canvas: HTMLCanvasElement, config: WaveConfig) => {
     Object.assign(waveConfigs, config)
   }
 
+  function motionTo<K extends keyof WaveConfig>(
+    key: K,
+    value: WaveConfig[K],
+    options: MotionOptions<WaveConfig[K]>
+  ) {
+    const currentValue = waveConfigs[key] ?? value
+    return animate(currentValue, value, {
+      ...options,
+      onUpdate(latest) {
+        setConfig({ [key]: latest })
+        options.onUpdate?.(latest)
+      },
+    })
+  }
+
   function reset() {
     Object.assign(waveConfigs, config)
     distance = 0
@@ -132,6 +149,7 @@ export const createWave = (canvas: HTMLCanvasElement, config: WaveConfig) => {
   return {
     start: () => draw(),
     setConfig,
+    motionTo,
     stop,
     reset,
     resize,
